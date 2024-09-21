@@ -25,7 +25,7 @@ class DogListViewModel @Inject constructor(
                 is Result.Success -> if (it.body?.isNotEmpty() == true) {
                     DogListUIState.Success(it.body)
                 } else {
-                    DogListUIState.Success(it.body)
+                    DogListUIState.EmptyState
                 }
             }
         }.catch {

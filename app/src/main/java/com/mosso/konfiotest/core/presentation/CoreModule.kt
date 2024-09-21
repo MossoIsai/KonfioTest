@@ -1,10 +1,15 @@
 package com.mosso.konfiotest.core.presentation
 
-import com.mosso.konfiotest.core.data.ApiServiceFactory
+import android.content.Context
+import androidx.room.Room
+import com.mosso.konfiotest.core.data.source.remote.ApiServiceFactory
+import com.mosso.konfiotest.core.data.source.local.DogDatabase
 import com.mosso.konfiotest.core.domain.ServiceFactory
+import com.mosso.konfiotest.doglist.data.source.local.DogDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -51,6 +56,21 @@ object CoreModule {
     fun provideApiServiceFactory(retrofit: Retrofit): ServiceFactory =
         ApiServiceFactory(retrofit)
 
+    @Provides
+    @Singleton
+    fun provideCoreDatabase(@ApplicationContext context: Context): DogDatabase =
+        Room.databaseBuilder(
+            context,
+            DogDatabase::class.java,
+            NAME_DATABASE
+        ).fallbackToDestructiveMigration()
+            .build()
+
+    @Provides
+    @Singleton
+    fun provideDogDao(database: DogDatabase): DogDao =
+        database.dogDao()
+
     @IoDispatcher
     @Provides
     fun provideIoDispatcher(): CoroutineDispatcher = Dispatchers.IO
@@ -60,6 +80,7 @@ object CoreModule {
     annotation class IoDispatcher
 
     private const val BASE_URL = "https://jsonblob.com/api/"
+    private const val NAME_DATABASE = "dog_database"
     private const val TIMEOUT_READ_HTTP = 30L
     private const val TIMEOUT_WRITE_HTTP = 10L
     private const val TIMEOUT_CONNECTION_HTTP = 10L

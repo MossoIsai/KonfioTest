@@ -4,7 +4,6 @@ import com.mosso.konfiotest.core.data.Result
 import com.mosso.konfiotest.core.domain.usecase.BaseUseCase
 import com.mosso.konfiotest.core.presentation.CoreModule.IoDispatcher
 import com.mosso.konfiotest.doglist.domain.model.Dog
-import com.mosso.konfiotest.doglist.domain.model.toDomain
 import com.mosso.konfiotest.doglist.domain.repository.GetDogListRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -22,7 +21,7 @@ class GetDogListUseCase @Inject constructor(
             repository.getDogList().collect {
                 when (it) {
                     is Result.Error -> emit(Result.Error(it.exception))
-                    is Result.Success -> emit(Result.Success(it.body?.toDomain()))
+                    is Result.Success -> emit(Result.Success(it.body))
                 }
             }
         }.flowOn(dispatcher)

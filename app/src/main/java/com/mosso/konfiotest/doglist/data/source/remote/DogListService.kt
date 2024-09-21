@@ -1,4 +1,4 @@
-package com.mosso.konfiotest.doglist.data.service
+package com.mosso.konfiotest.doglist.data.source.remote
 
 import com.mosso.konfiotest.doglist.data.models.DogResponse
 import retrofit2.Response

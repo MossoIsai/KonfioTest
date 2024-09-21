@@ -20,12 +20,13 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 fun InfiniteAnimation(
     spec: LottieCompositionSpec,
     modifier: Modifier = Modifier,
-    contentScale: ContentScale
+    contentScale: ContentScale,
+    isCompleted: Boolean
 ) {
     val composition by rememberLottieComposition(spec)
     val progress by animateLottieCompositionAsState(
         composition,
-        iterations = LottieConstants.IterateForever
+        iterations = if (isCompleted) 1 else LottieConstants.IterateForever
     )
     LottieAnimation(
         composition = composition,
@@ -48,6 +49,7 @@ fun LoadingAnimation(
         contentAlignment = Alignment.Center
     ) {
         InfiniteAnimation(
+            isCompleted = false,
             spec = LottieCompositionSpec.Asset("dog_animation.json"),
             contentScale = ContentScale.Crop,
             modifier = modifier
