@@ -14,6 +14,7 @@ interceptorVerison = "4.12.0"
 hilt-version = "2.51.1"
 ksp-version = "1.9.10-1.0.13"
 coil-version = "2.7.0"
+lottie-version = "6.0.0"
 
 
 
@@ -40,10 +41,8 @@ okhttp = { group = "com.squareup.okhttp3", name = "logging-interceptor", version
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt-version" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt-version" }
 
-coil = { group= "io.coil-kt", name="coil-compose", version.ref = "coil-version"}
-
-
-
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil-version" }
+lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie-version" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

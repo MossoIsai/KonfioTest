@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,6 +36,7 @@ fun DogComponent(
         modifier = Modifier
             .background(Color.Transparent)
             .wrapContentHeight()
+            .padding(start = 10.dp, end = 10.dp, bottom = 16.dp, top = 16.dp)
             .clip(
                 shape = RoundedCornerShape(
                     topStart = 16.dp,
@@ -47,8 +49,8 @@ fun DogComponent(
         Box(
             modifier = Modifier
                 .align(Alignment.BottomStart)
-                .padding(start = 70.dp)
-                .height(120.dp)
+                .padding(start = 80.dp)
+                .height(150.dp)
                 .fillMaxWidth()
                 .background(Color.White)
         ) {
@@ -60,15 +62,26 @@ fun DogComponent(
                     bottom = 15.dp
                 )
             ) {
-                Text(text = dog.name, fontSize = 18.sp)
-                Text(text = dog.description, fontSize = 14.sp)
-                Text(text = dog.age.toString(), fontSize = 10.sp)
+                Text(
+                    text = dog.name, fontSize = 18.sp,
+                    color = colorResource(id = R.color.black)
+                )
+                Text(
+                    text = dog.description,
+                    fontSize = 15.sp,
+                    color = colorResource(id = R.color.gray),
+                    lineHeight = 14.sp
+                )
+                Text(
+                    text = dog.age.toString(), fontSize = 12.sp,
+                    color = colorResource(id = R.color.black)
+                )
             }
         }
         AsyncImage(
             placeholder = painterResource(R.drawable.ic_launcher_background),
             modifier = Modifier
-                .size(width = 90.dp, height = 150.dp)
+                .size(width = 110.dp, height = 180.dp)
                 .clip(
                     shape = RoundedCornerShape(
                         topStart = 16.dp,

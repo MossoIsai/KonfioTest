@@ -68,8 +68,8 @@ dependencies {
     // hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-    // lotie
-
+    // lottie
+    implementation(libs.lottie)
     // coil
     implementation(libs.coil)
 
