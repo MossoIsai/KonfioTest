@@ -1,4 +1,4 @@
-package com.mosso.konfiotest.core.data
+package com.mosso.konfiotest.core.data.source.remote
 
 import com.mosso.konfiotest.core.domain.ServiceFactory
 import retrofit2.Retrofit

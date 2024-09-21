@@ -13,5 +13,4 @@ interface DogListModule {
 
     @Binds
     fun moviesRepository(repository: GetDogListRepositoryImp): GetDogListRepository
-
 }

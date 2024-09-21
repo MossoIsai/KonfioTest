@@ -15,8 +15,7 @@ hilt-version = "2.51.1"
 ksp-version = "1.9.10-1.0.13"
 coil-version = "2.7.0"
 lottie-version = "6.0.0"
-
-
+room-version = "2.6.1"
 
 
 [libraries]
@@ -44,8 +43,13 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", v
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil-version" }
 lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie-version" }
 
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-version" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room-version" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room-version" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt-version" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-version" }
+room = { id = "androidx.room", version.ref = "room-version" }
