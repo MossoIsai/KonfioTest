@@ -1,7 +1,6 @@
 package com.mosso.konfiotest.doglist.data.models
 
 import com.google.gson.annotations.SerializedName
-import com.mosso.konfiotest.core.data.source.local.DogEntity
 
 data class DogResponse(
     @SerializedName("dogName") val name: String? = null,
