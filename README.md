@@ -1,6 +1,6 @@
 ##  KonfioTest (Este proyecto utiliza clean architecture + MVVM )
 ## Dog List
-![Screenshot_20240921_114616](https://github.com/user-attachments/assets/7485afe7-f7bd-466f-8317-5d05b757d467)
+![Screenshot_20240922_150935](https://github.com/user-attachments/assets/ed809520-470b-499b-866e-95fd4857e05a)
 
 
 ```
