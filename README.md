@@ -1,7 +1,7 @@
 # Test
 ## Clean architecture
 Este proyecto utiliza clean architecture + MVVM 
-## Lista
+## Dog List
 ![Screenshot_20240921_114616](https://github.com/user-attachments/assets/7485afe7-f7bd-466f-8317-5d05b757d467)
 
 
@@ -38,8 +38,6 @@ La capa de datos contiene datos de aplicación y lógica empresarial. La lógica
              - local (database, SharedPreferences, DataStore, ProtoDataStore)
              - remote (web service, Firebase etc.)
 ```
-## Movie List
-![Screenshot_20240822_093952](https://github.com/user-attachments/assets/482973de-1832-41d8-b8b1-64661f9b4a91)
 
 
 
