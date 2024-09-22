@@ -45,11 +45,6 @@ fun DogListScreen(
     ) { innerPadding ->
         when (uiState) {
             is DogListUIState.Error -> {
-                Toast.makeText(LocalContext.current, uiState.throwable.message, Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-            DogListUIState.EmptyState -> {
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
@@ -57,6 +52,8 @@ fun DogListScreen(
                 ) {
                     EmptyState(modifier = Modifier.fillMaxSize())
                 }
+                Toast.makeText(LocalContext.current, uiState.exception, Toast.LENGTH_SHORT)
+                    .show()
             }
 
             DogListUIState.Loading -> {

@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import com.mosso.konfiotest.core.data.Result
 import com.mosso.konfiotest.core.data.source.local.DogEntity
+import com.mosso.konfiotest.core.presentation.handlerErrorMessage
 import com.mosso.konfiotest.doglist.data.source.local.DogDao
 import com.mosso.konfiotest.doglist.domain.model.Dog
 import com.mosso.konfiotest.doglist.domain.model.entityToDomain
@@ -35,15 +36,14 @@ class GetDogListRepositoryImp @Inject constructor(
                         }
                         emit(Result.Success(response.body()?.toDomain()))
                     } else {
-                        emit(Result.Error(Throwable(response.message())))
+                        emit(Result.Error(response.message()))
                     }
                 } else {
                     emit(Result.Success(dogListEntity.entityToDomain()))
                 }
             }
         }.catch {
-            emit(Result.Error(it))
-            emit(Result.Success(emptyList()))
+            emit(Result.Error(it.handlerErrorMessage()))
         }
     }
 }

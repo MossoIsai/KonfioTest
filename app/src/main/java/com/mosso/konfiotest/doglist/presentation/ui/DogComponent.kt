@@ -79,7 +79,7 @@ fun DogComponent(
             }
         }
         AsyncImage(
-            placeholder = painterResource(R.drawable.ic_launcher_background),
+            placeholder = painterResource(R.drawable.placeholder_dog),
             modifier = Modifier
                 .size(width = 110.dp, height = 180.dp)
                 .clip(
@@ -94,7 +94,7 @@ fun DogComponent(
             contentScale = ContentScale.Crop,
             model = ImageRequest.Builder(LocalContext.current)
                 .data(dog.imageUrl)
-                .crossfade(true)
+                .crossfade(false)
                 .build(),
         )
     }
