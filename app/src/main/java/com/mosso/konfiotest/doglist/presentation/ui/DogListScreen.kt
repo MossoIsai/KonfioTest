@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -30,6 +31,13 @@ fun DogListScreen(
     lazyListState: LazyListState,
     uiState: DogListUIState
 ) {
+    val context = LocalContext.current
+    LaunchedEffect(uiState) {
+        if (uiState is DogListUIState.Error) {
+            Toast.makeText(context, uiState.exception, Toast.LENGTH_SHORT).show()
+        }
+    }
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -52,8 +60,6 @@ fun DogListScreen(
                 ) {
                     EmptyState(modifier = Modifier.fillMaxSize())
                 }
-                Toast.makeText(LocalContext.current, uiState.exception, Toast.LENGTH_SHORT)
-                    .show()
             }
 
             DogListUIState.Loading -> {

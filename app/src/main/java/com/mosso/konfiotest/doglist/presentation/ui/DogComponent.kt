@@ -63,17 +63,28 @@ fun DogComponent(
                 )
             ) {
                 Text(
-                    text = dog.name, fontSize = 18.sp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(0.2f),
+                    text = dog.name, fontSize = 20.sp,
                     color = colorResource(id = R.color.black)
                 )
                 Text(
+                    modifier = Modifier
+                        .padding(top = 4.dp, bottom = 8.dp)
+                        .weight(0.6f)
+                        .wrapContentHeight(),
                     text = dog.description,
-                    fontSize = 15.sp,
+                    fontSize = 16.sp,
                     color = colorResource(id = R.color.gray),
-                    lineHeight = 14.sp
+                    lineHeight = 14.sp,
+                    maxLines = 4
                 )
                 Text(
-                    text = dog.age.toString(), fontSize = 12.sp,
+                    modifier = Modifier
+                        .weight(0.2f)
+                        .fillMaxWidth(),
+                    text = "Almost ${dog.age} years", fontSize = 14.sp,
                     color = colorResource(id = R.color.black)
                 )
             }
