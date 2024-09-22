@@ -20,7 +20,9 @@ class GetDogListUseCase @Inject constructor(
         flow<Result<List<Dog>>> {
             repository.getDogList().collect {
                 when (it) {
-                    is Result.Error -> emit(Result.Error(it.exception))
+                    is Result.Error -> {
+                        emit(Result.Error(it.exception))
+                    }
                     is Result.Success -> emit(Result.Success(it.body))
                 }
             }

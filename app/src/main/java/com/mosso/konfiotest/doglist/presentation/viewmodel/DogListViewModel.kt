@@ -21,15 +21,15 @@ class DogListViewModel @Inject constructor(
     val dogListUIState: StateFlow<DogListUIState> =
         useCase.execute().map {
             when (it) {
-                is Result.Error -> DogListUIState.Error(it.exception)
-                is Result.Success -> if (it.body?.isNotEmpty() == true) {
-                    DogListUIState.Success(it.body)
-                } else {
-                    DogListUIState.EmptyState
+                is Result.Error -> {
+                    DogListUIState.Error(it.exception)
                 }
+
+                is Result.Success ->
+                    DogListUIState.Success(it.body)
             }
         }.catch {
-            DogListUIState.Error(it)
+            DogListUIState.Error(it.message.toString())
         }.stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5_000L),
