@@ -9,15 +9,3 @@ data class DogResponse(
     @SerializedName("age") val age: Int? = null,
     @SerializedName("image") val imageUrl: String? = null,
 )
-
-fun DogEntity.toResponse(): DogResponse = DogResponse(
-    name = name,
-    description = description,
-    age = age,
-    imageUrl = imageUrl
-)
-
-fun List<DogEntity>.toResponse(): List<DogResponse> =
-    flatMap {
-        arrayListOf(it.toResponse())
-    }

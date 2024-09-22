@@ -1,6 +1,5 @@
 package com.mosso.konfiotest.doglist.data.repository
 
-import android.util.Log
 import com.mosso.konfiotest.core.domain.ServiceFactory
 import com.mosso.konfiotest.doglist.data.source.remote.DogListService
 import com.mosso.konfiotest.doglist.domain.repository.GetDogListRepository
@@ -14,7 +13,6 @@ import com.mosso.konfiotest.doglist.domain.model.Dog
 import com.mosso.konfiotest.doglist.domain.model.entityToDomain
 import com.mosso.konfiotest.doglist.domain.model.toData
 import com.mosso.konfiotest.doglist.domain.model.toDomain
-import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 
