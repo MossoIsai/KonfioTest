@@ -18,23 +18,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mosso.konfiotest.R
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.mosso.konfiotest.doglist.presentation.state.DogListUIState
+import com.mosso.konfiotest.doglist.presentation.viewmodel.DogListViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DogListScreen(
     lazyListState: LazyListState,
-    uiState: DogListUIState
+    viewModel: DogListViewModel = viewModel()
 ) {
+
+    val dogUiState by viewModel.dogListUIState.collectAsStateWithLifecycle()
     val context = LocalContext.current
-    LaunchedEffect(uiState) {
-        if (uiState is DogListUIState.Error) {
-            Toast.makeText(context, uiState.exception, Toast.LENGTH_SHORT).show()
+    LaunchedEffect(dogUiState) {
+        if (dogUiState is DogListUIState.Error) {
+            Toast.makeText(context, (dogUiState as DogListUIState.Error).exception, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -51,7 +57,7 @@ fun DogListScreen(
             )
         },
     ) { innerPadding ->
-        when (uiState) {
+        when (dogUiState) {
             is DogListUIState.Error -> {
                 Column(
                     modifier = Modifier.fillMaxSize(),
@@ -67,7 +73,7 @@ fun DogListScreen(
             }
 
             is DogListUIState.Success -> {
-                val dogList = uiState.dogList ?: arrayListOf()
+                val dogList =  (dogUiState as DogListUIState.Success).dogList ?: arrayListOf()
                 LazyColumn(
                     modifier = Modifier
                         .padding(innerPadding)
