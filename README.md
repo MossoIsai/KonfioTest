@@ -2,6 +2,12 @@
 ## Dog List
 ![Screenshot_20240922_150935](https://github.com/user-attachments/assets/ed809520-470b-499b-866e-95fd4857e05a)
 
+## Loader
+![Screenshot_20240922_151119](https://github.com/user-attachments/assets/42dbda52-d42f-41a8-863a-fb6831c49707)
+
+## Placeholder image
+![Screenshot_20240922_151234](https://github.com/user-attachments/assets/68216108-ff2b-42dc-bc1d-879f6b5c6e86)
+
 
 ```
 
