@@ -8,6 +8,10 @@
 ## Placeholder image
 ![Screenshot_20240922_151234](https://github.com/user-attachments/assets/68216108-ff2b-42dc-bc1d-879f6b5c6e86)
 
+## Empty state
+![Screenshot_20240922_151031](https://github.com/user-attachments/assets/0aa986e7-88ae-4023-bb48-ab602b534867)
+
+
 
 ```
 
